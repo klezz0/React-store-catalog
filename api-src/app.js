@@ -1,12 +1,20 @@
 import express from "express";
 import fileUpload from "express-fileupload";
-
 import routesRouter from "./database/router.js";
 import {join} from "node:path";
+import fs from "fs";
 
 process.env.IMAGES_DIR = "images";
 process.env.IMAGES_PATH = join(process.cwd(), process.env.IMAGES_DIR);
 process.env.PRODUCTS_PATH = join(process.cwd(), "database/products.json");
+
+
+fs.mkdir(process.env.IMAGES_PATH, { recursive: true }, (err) => {
+  if (err) {
+    return console.error(`Error creating directory: ${err}`);
+  }
+  console.log('Directory created successfully!');
+});
 
 const PORT = 3030
 const api = express()
