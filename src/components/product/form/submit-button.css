@@ -1,0 +1,38 @@
+/* ===== Кнопка отправки формы ===== */
+.submit-button {
+    width: 100%;
+    height: 42px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-input);
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    cursor: default;
+    transition: background 0.2s ease;
+    text-align: center;
+    background: var(--color-disabled);
+    border-color: var(--color-disabled);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Кнопка активна (форма заполнена) */
+.submit-button--active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    cursor: pointer;
+}
+
+.submit-button--active:hover {
+    background: var(--color-primary-hover);
+}
+
+/* Кнопка в состоянии загрузки */
+.submit-button--loading {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    cursor: wait;
+    opacity: 0.85;
+}

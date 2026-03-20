@@ -1,0 +1,182 @@
+/* ===== Карточка товара ===== */
+.product-card {
+    width: 100%;
+    height: 400px;
+    background: var(--color-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+}
+
+/* Режим редактирования — синий оттенок тени */
+.product-card--editing {
+    box-shadow: var(--shadow-card-editing);
+}
+
+/* ===== Фото товара ===== */
+.product-card__image-wrapper {
+    width: 100%;
+    height: 200px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+}
+
+.product-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Спиннер загрузки картинки */
+.product-card__image-loader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+}
+
+.product-card__image-loader .loader-inline__spinner {
+    border-color: var(--color-border);
+    border-top-color: var(--color-primary);
+}
+
+/* Заглушка без фото */
+.product-card__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    gap: 8px;
+}
+
+.product-card__placeholder-icon {
+    width: 100px;
+    height: 100px;
+    opacity: 0.5;
+}
+
+.product-card__placeholder-text {
+    font-family: var(--font);
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+/* ===== Информация о товаре ===== */
+.product-card__info {
+    padding: 11px 10px 0;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+}
+
+.product-card__title {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--color-text);
+    margin: 0;
+    line-height: normal;
+}
+
+.product-card__description {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: normal;
+    color: var(--color-text);
+    margin: 10px 0 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    flex: 1;
+}
+
+.product-card__description-label {
+    font-weight: 700;
+}
+
+.product-card__description-text {
+    font-weight: 400;
+}
+
+.product-card__price {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-text);
+    margin: 0;
+    padding-bottom: 10px;
+    line-height: normal;
+}
+
+/* ===== Действия при наведении ===== */
+.product-card__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 11px;
+    right: 10px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.product-card:hover .product-card__actions,
+.product-card--editing .product-card__actions {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ===== Кнопка действия (круглая) ===== */
+.product-card__action-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: var(--radius-action-btn);
+    background: var(--color-action-bg);
+    box-shadow: var(--shadow-action-btn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 4px;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.product-card__action-btn:hover {
+    background: var(--color-primary);
+    box-shadow: var(--shadow-action-btn-hover);
+}
+
+/* SVG иконка внутри кнопки */
+.product-card__action-icon {
+    width: 22px;
+    height: 22px;
+}
+
+/* Смена цвета иконки при наведении (чёрная → белая) */
+.product-card__action-btn:hover .product-card__action-icon {
+    --fill-0: white;
+}
+
+/* В режиме редактирования кнопка «редактирование» уже синяя */
+.product-card__action-btn--editing-active {
+    background: var(--color-primary);
+    box-shadow: var(--shadow-action-btn-hover);
+}
+
+.product-card__action-btn--editing-active .product-card__action-icon {
+    --fill-0: white;
+}
